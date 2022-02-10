@@ -27,6 +27,10 @@ func (sa SecretAgent) speak(){
 	fmt.Println("I'm a secret agent and - this is my name: ",sa.name)
 }
 
+func foo(h Human){
+	h.speak()
+}
+
 func main() {
 	p1 := Person{
 		name: "john",
@@ -48,4 +52,9 @@ func main() {
 	y.speak()
 	fmt.Printf("%T\n",x)
 	fmt.Printf("%T\n",y)
+	println("---")
+	foo(x)
+	foo(y)
+	foo(p1)
+	foo(p2)
 }
