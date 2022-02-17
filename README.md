@@ -12,6 +12,12 @@ all about web architecture, business layers, auth and more..
 ## uuid generator
 [click here](https://www.uuidgenerator.net/)
 
+## go docs
+use go docs to look for code, inside any pkg
+```
+go doc github.com/go-pkg/example
+```
+
 ## go module
 ```
 go mod init folder-name or www.github.com/userName/repo-name

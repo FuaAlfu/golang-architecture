@@ -9,31 +9,31 @@ type(
 		Name string
 	}
 
-	accessor interface{
-		save(n int,p Person)
-		retrieve(n int)Person
+	Accessor interface{
+		Save(n int,p Person)
+		Retrieve(n int)Person
 	}
 
-	personService struct{
-		a accessor
+	PersonService struct{
+		a Accessor
 	}
 )
 
 //recieve a person from our database..
-func (ps personService) get(n int)(Person, error){
-	p:= ps.a.retrieve(n)
+func (ps PersonService) get(n int)(Person, error){
+	p:= ps.a.Retrieve(n)
 	if p.Name == ""{
 		return Person{}, fmt.Errorf("no person with n of %d", n)
 	}
 	return p, nil
 }
 
-func put(a accessor, n int, p Person){
-	a.save(n,p)
+func put(a Accessor, n int, p Person){
+	a.Save(n,p)
 }
 
-func get(a accessor, n int) Person{
-	return a.retrieve(n)
+func get(a Accessor, n int) Person{
+	return a.Retrieve(n)
 }
 
 func main() {
@@ -42,7 +42,7 @@ func main() {
 	dbpg := postger{}
 
 	//costructing
-	ps := personService{
+	ps := PersonService{
 		a: dbm,
 	}
 	p1 := Person{
